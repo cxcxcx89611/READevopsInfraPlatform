@@ -22,7 +22,7 @@ resource "aws_instance" "default" {
   instance_type          = var.instance_type
 
   tags = {
-    Name = "terraform-default"
+    Name = "REA-APP-Server"
   }
 }
 
