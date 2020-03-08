@@ -15,6 +15,7 @@ pipeline {
     }
   }
 
+  stages{
   // Run terraform init
   stage('init') {
     node {
@@ -80,6 +81,7 @@ pipeline {
         }
       }
     }
+  }
   }
 }
 
