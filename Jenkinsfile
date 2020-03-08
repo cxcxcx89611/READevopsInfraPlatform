@@ -1,4 +1,3 @@
-// Jenkinsfile
 String credentialsId = 'awsCredentials'
 
 try {
