@@ -8,14 +8,15 @@ pipeline {
     CREDENTIALS_ID = 'awsCredentials'
   }
 
-  stage('checkout') {
-    node {
-      cleanWs()
-      checkout scm
-    }
-  }
+
 
   stages {
+    stage('checkout') {
+      node {
+        cleanWs()
+        checkout scm
+      }
+    }
   // Run terraform init
   stage('init') {
     steps {
