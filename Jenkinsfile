@@ -1,3 +1,6 @@
+
+pipeline {
+agent {label 'Slave01'}
 String credentialsId = 'awsCredentials'
 
 try {
@@ -87,4 +90,5 @@ finally {
   if (currentBuild.result == 'SUCCESS') {
     currentBuild.result = 'SUCCESS'
   }
+}
 }
