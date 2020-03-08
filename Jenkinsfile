@@ -47,9 +47,6 @@ pipeline {
       }
     }
   }
-
-  if (env.BRANCH_NAME == 'master') {
-
     // Run terraform apply
     stage('apply') {
       steps {
@@ -81,7 +78,7 @@ pipeline {
         }
       }
     }
-   }
+
   }
 }
 
