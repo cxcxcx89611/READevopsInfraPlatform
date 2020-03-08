@@ -20,7 +20,7 @@ pipeline {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: ${CREDENTIALS_ID}
+        credentialsId: ${CREDENTIALS_ID},
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
