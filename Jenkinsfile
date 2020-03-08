@@ -1,29 +1,23 @@
-pipeline {
-
   agent {
      label 'Slave01'
   }
+// Jenkinsfile
+String credentialsId = 'awsCredentials'
 
-  environment {
-    CREDENTIALS_ID = 'awsCredentials'
+try {
+  stage('checkout') {
+    node (label: 'Slave01') {
+      cleanWs()
+      checkout scm
+    }
   }
 
-
-
-  stages {
-   try {
-    stage('checkout') {
-      steps {
-        cleanWs()
-        checkout scm
-      }
-    }
   // Run terraform init
   stage('init') {
-    steps {
+    node (label: 'Slave01') {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: ${CREDENTIALS_ID},
+        credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -36,10 +30,10 @@ pipeline {
 
   // Run terraform plan
   stage('plan') {
-    steps {
+    node (label: 'Slave01') {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: ${CREDENTIALS_ID},
+        credentialsId: credentialsId,
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -49,12 +43,15 @@ pipeline {
       }
     }
   }
+
+  if (env.BRANCH_NAME == 'master') {
+
     // Run terraform apply
     stage('apply') {
-      steps {
+      node (label: 'Slave01') {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: ${CREDENTIALS_ID},
+          credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -67,10 +64,10 @@ pipeline {
 
     // Run terraform show
     stage('show') {
-      steps {
+      node (label: 'Slave01') {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: ${CREDENTIALS_ID},
+          credentialsId: credentialsId,
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -80,9 +77,18 @@ pipeline {
         }
       }
     }
-    } catch (err) {
-     throw err
-    }
+  }
+  currentBuild.result = 'SUCCESS'
+}
+catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
+  currentBuild.result = 'ABORTED'
+}
+catch (err) {
+  currentBuild.result = 'FAILURE'
+  throw err
+}
+finally {
+  if (currentBuild.result == 'SUCCESS') {
+    currentBuild.result = 'SUCCESS'
   }
 }
-
