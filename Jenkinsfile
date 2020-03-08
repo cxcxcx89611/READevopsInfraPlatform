@@ -1,6 +1,3 @@
-  agent {
-     label 'Slave01'
-  }
 // Jenkinsfile
 String credentialsId = 'awsCredentials'
 
