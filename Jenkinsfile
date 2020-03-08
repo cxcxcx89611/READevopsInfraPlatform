@@ -15,7 +15,7 @@ pipeline {
     }
   }
 
-  stages{
+  stages {
   // Run terraform init
   stage('init') {
     node {
@@ -37,7 +37,7 @@ pipeline {
     node {
       withCredentials([[
         $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: credentialsId,
+        credentialsId: ${CREDENTIALS_ID},
         accessKeyVariable: 'AWS_ACCESS_KEY_ID',
         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
       ]]) {
@@ -55,7 +55,7 @@ pipeline {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          credentialsId: ${CREDENTIALS_ID},
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -71,7 +71,7 @@ pipeline {
       node {
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
-          credentialsId: credentialsId,
+          credentialsId: ${CREDENTIALS_ID},
           accessKeyVariable: 'AWS_ACCESS_KEY_ID',
           secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
         ]]) {
@@ -81,7 +81,7 @@ pipeline {
         }
       }
     }
-  }
+   }
   }
 }
 
