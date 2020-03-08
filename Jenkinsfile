@@ -11,6 +11,7 @@ pipeline {
 
 
   stages {
+   try {
     stage('checkout') {
       steps {
         cleanWs()
@@ -79,7 +80,9 @@ pipeline {
         }
       }
     }
-
+    } catch (err) {
+     throw err
+    }
   }
 }
 
