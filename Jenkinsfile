@@ -91,7 +91,7 @@ try {
           ansiColor('xterm') {
             sh '''
              ssh -i ~/.ssh/id_rsa ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com "mkdir -p /home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
-             scp -rpi ~/.ssh/id_rsa ../artifacts/SinatraApp/* ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com:/home/ec2-user/REA_Deployment/artifacts/SinatraApp/
+             scp -rpi ~/.ssh/id_rsa /home/jenkins-slave-01/workspace/artifacts/SinatraAPP/* ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com:/home/ec2-user/REA_Deployment/artifacts/SinatraApp/
              '''
           }
         }
