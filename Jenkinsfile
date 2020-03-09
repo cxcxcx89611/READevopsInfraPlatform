@@ -1,7 +1,7 @@
 // Jenkinsfile
 String credentialsId = 'awsCredentials'
-def AppArtifactDir = "/home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
-def SlaveArtifactDir = "/home/jenkins-slave-01/artifacts/SinatraAPP/"
+String AppArtifactDir = "/home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
+String SlaveArtifactDir = "/home/jenkins-slave-01/artifacts/SinatraAPP/"
 
 
 
