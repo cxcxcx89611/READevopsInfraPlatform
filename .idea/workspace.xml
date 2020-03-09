@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3813dab6-edd9-4303-8efe-917e3cf53029" name="Default Changelist" comment="" />
+    <list default="true" id="3813dab6-edd9-4303-8efe-917e3cf53029" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/authorized_keys" beforeDir="false" afterPath="$PROJECT_DIR$/files/authorized_keys" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +17,16 @@
         <entry file="file://$PROJECT_DIR$/Jenkinsfile">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="93" column="113" selection-start-line="93" selection-start-column="113" selection-end-line="93" selection-end-column="113" />
+              <caret line="93" column="109" lean-forward="true" selection-start-line="93" selection-start-column="109" selection-end-line="93" selection-end-column="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/files/REA_Instance.pem">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -28,20 +40,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.tf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+            <state relative-caret-position="-557">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/files/authorized_keys">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="431" selection-start-line="1" selection-start-column="431" selection-end-line="1" selection-end-column="431" />
+            <state relative-caret-position="34">
+              <caret line="2" column="439" selection-start-line="2" selection-start-column="439" selection-end-line="2" selection-end-column="439" />
             </state>
           </provider>
         </entry>
@@ -77,6 +89,7 @@
       <find>terraform</find>
       <find>terraform-de</find>
       <find>var.ami</find>
+      <find>tags</find>
     </findStrings>
     <dirStrings>
       <dir>C:\project\REA group\platform\READevopsInfraPlatform</dir>
@@ -91,9 +104,9 @@
         <option value="$PROJECT_DIR$/output.tf" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/variables.tf" />
-        <option value="$PROJECT_DIR$/files/authorized_keys" />
         <option value="$PROJECT_DIR$/Jenkinsfile" />
         <option value="$PROJECT_DIR$/main.tf" />
+        <option value="$PROJECT_DIR$/files/authorized_keys" />
       </list>
     </option>
   </component>
@@ -134,7 +147,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583756890213" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583758356693" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../simple-sinatra-app2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -167,27 +180,28 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583627583655</updated>
-      <workItem from="1583627585320" duration="35647000" />
+      <workItem from="1583627585320" duration="37342000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35647000" />
+    <option name="totallyTimeSpent" value="37342000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1549" height="846" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24949698" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.33240223" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.33240223" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -232,27 +246,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/files/REA_Instance.pem">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/files/authorized_keys">
+    <entry file="file://$PROJECT_DIR$/main.tf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="431" selection-start-line="1" selection-start-column="431" selection-end-line="1" selection-end-column="431" />
+        <state relative-caret-position="-557">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Jenkinsfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
-          <caret line="93" column="113" selection-start-line="93" selection-start-column="113" selection-end-line="93" selection-end-column="113" />
+          <caret line="93" column="109" lean-forward="true" selection-start-line="93" selection-start-column="109" selection-end-line="93" selection-end-column="109" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.tf">
+    <entry file="file://$PROJECT_DIR$/files/REA_Instance.pem">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
+        <state relative-caret-position="204">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/authorized_keys">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="439" selection-start-line="2" selection-start-column="439" selection-end-line="2" selection-end-column="439" />
         </state>
       </provider>
     </entry>
