@@ -1,6 +1,7 @@
 // Jenkinsfile
 String credentialsId = 'awsCredentials'
-
+APPARTIFACTDIR = '/home/ec2-user/REA_Deployment/artifacts/SinatraApp/'
+SLAVEARTIFACTDIR = '/home/jenkins-slave-01/artifacts/SinatraAPP/'
 
 try {
   stage('checkout') {
@@ -80,8 +81,7 @@ try {
   stage('configure app server') {
 
       node (label: 'Slave01') {
-        def APPARTIFACTDIR = '/home/ec2-user/REA_Deployment/artifacts/SinatraApp/'
-        def SLAVEARTIFACTDIR = '/home/jenkins-slave-01/artifacts/SinatraAPP/'
+
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
