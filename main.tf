@@ -22,10 +22,6 @@ resource "aws_instance" "default" {
   source_dest_check      = false
   instance_type          = var.instance_type
 
-  tags = {
-    Name = "REA-APP-Server"
-  }
-
   provisioner "file" {
       source      = "files/authorized_keys"
       destination = "/home/ec2-user/.ssh/authorized_keys"
