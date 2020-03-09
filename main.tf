@@ -25,18 +25,27 @@ resource "aws_instance" "default" {
   tags = {
     Name = "REA-APP-Server"
   }
+
+  provisioner "file" {
+      source      = "files/authorized_keys"
+      destination = "/home/ec2-user/.ssh/authorized_keys"
+      connection {
+        type        = "ssh"
+        user        = "ec2-user"
+        host        = "172.31.44.185"
+        private_key = "${file("files/REA_Instance.pem")}"
+      }
+    }
+
+    tags = {
+        Name          = "REA_Group_Ruby_ENV"
+        Deployment    = "SinatraAPP"
+        Environment   = "SinatraAPP_Dev"
+        It_Owner = "izzychen0611@gmail.com"
+      }
 }
 
-provisioner "file" {
-    source      = "files/authorized_keys"
-    destination = "/home/ec2-user/.ssh/authorized_keys"
-    connection {
-      type        = "ssh"
-      user        = "ec2-user"
-      host        = "172.31.44.185"
-      private_key = "${file("files/REA_Instance.pem")}"
-    }
-  }
+
 
 # Create Security Group for EC2
 resource "aws_security_group" "default" {
