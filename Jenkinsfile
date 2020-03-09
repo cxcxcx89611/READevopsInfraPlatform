@@ -3,8 +3,6 @@ String credentialsId = 'awsCredentials'
 def AppArtifactDir = '/home/ec2-user/REA_Deployment/artifacts/SinatraApp/'
 def SlaveArtifactDir = '/home/jenkins-slave-01/artifacts/SinatraAPP/'
 
-
-
 try {
   stage('checkout') {
     node (label: 'Slave01') {
@@ -82,8 +80,7 @@ try {
 
   stage('configure app server') {
       node (label: 'Slave01') {
-      def AppArtifactDir = '/home/ec2-user/REA_Deployment/artifacts/SinatraApp/'
-      def SlaveArtifactDir = '/home/jenkins-slave-01/artifacts/SinatraAPP/'
+
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
