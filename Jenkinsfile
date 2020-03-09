@@ -75,7 +75,23 @@ try {
       }
     }
   }
-  currentBuild.result = 'SUCCESS'
+
+  stage('configure app server') {
+      node (label: 'Slave01') {
+        withCredentials([[
+          $class: 'AmazonWebServicesCredentialsBinding',
+          credentialsId: credentialsId,
+          accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+          secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        ]]) {
+          ansiColor('xterm') {
+            sh 'ssh -i ~/.ssh/id_rsa ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com "mkdir -p /home/ec2-user/REA_Deployment/artifacts/SinatraApp/" &&
+            scp -rpi ~/.ssh/id_rsa ./* ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com:/home/ec2-user/REA_Deployment/artifacts/SinatraApp/'
+          }
+        }
+      }
+    }
+    currentBuild.result = 'SUCCESS'
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
   currentBuild.result = 'ABORTED'
