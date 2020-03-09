@@ -15,6 +15,7 @@ provider "aws" {
 # Create EC2 instance
 resource "aws_instance" "default" {
   ami                    = var.ami
+  private_ip             = "172.31.44.185"
   count                  = var.instance_count
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.default.id]
@@ -25,6 +26,17 @@ resource "aws_instance" "default" {
     Name = "REA-APP-Server"
   }
 }
+
+provisioner "file" {
+    source      = "files/authorized_keys"
+    destination = "/home/ec2-user/.ssh/authorized_keys"
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      host        = "172.31.44.185"
+      private_key = "${file("files/REA_Instance.pem")}"
+    }
+  }
 
 # Create Security Group for EC2
 resource "aws_security_group" "default" {
