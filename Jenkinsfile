@@ -79,8 +79,8 @@ try {
 
   stage('configure app server') {
       node (label: 'Slave01') {
-       def AppArtifactDir = "/home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
-       def SlaveArtifactDir = "/home/jenkins-slave-01/artifacts/SinatraAPP/"
+       def APPARTIFACTDIR = "/home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
+       def SLAVEARTIFACTDIR = "/home/jenkins-slave-01/artifacts/SinatraAPP/"
         withCredentials([[
           $class: 'AmazonWebServicesCredentialsBinding',
           credentialsId: credentialsId,
@@ -89,10 +89,10 @@ try {
         ]]) {
           ansiColor('xterm') {
             sh '''
-             rm -rf ${SlaveArtifactDir}
-             ssh -i ~/.ssh/id_rsa ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com "mkdir -p ${AppArtifactDir}"
-             scp -rpi ~/.ssh/id_rsa * ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com:${AppArtifactDir}
-              '''
+             rm -rf 'SLAVEARTIFACTDIR'
+             ssh -i ~/.ssh/id_rsa ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com "mkdir -p 'APPARTIFACTDIR'"
+             scp -rpi ~/.ssh/id_rsa * ec2-user@ec2-3-15-28-234.us-east-2.compute.amazonaws.com:'APPARTIFACTDIR'
+             '''
           }
         }
       }
