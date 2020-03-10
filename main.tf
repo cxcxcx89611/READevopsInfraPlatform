@@ -30,7 +30,7 @@ resource "aws_instance" "default" {
         type        = "ssh"
         user        = "ec2-user"
         host        = "172.31.44.185"
-        private_key = "${file("files/REA_Instance.pem")}"
+        private_key = "file("files/REA_Instance.pem")"
       }
     }
 
