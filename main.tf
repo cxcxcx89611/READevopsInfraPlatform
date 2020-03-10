@@ -21,6 +21,7 @@ resource "aws_instance" "default" {
   source_dest_check      = false
   instance_type          = var.instance_type
   subnet_id              = "subnet-25f8094e"
+  vpc_security_group_id  = ["sg-058bf7e7e208d1380"]
 
     tags = {
         Name          = "REA_Group_Dev_ENV"
@@ -29,45 +30,5 @@ resource "aws_instance" "default" {
         It_Owner = "izzychen0611@gmail.com"
       }
 }
-
-
-
-# Create Security Group for EC2
-resource "aws_security_group" "default" {
-  name = "REA_Dev_ENV_sg"
-
-  ingress {
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-      from_port   = 8080
-      to_port     = 8080
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-      from_port   = 9292
-      to_port     = 9292
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 }
+sg-058bf7e7e208d1380
