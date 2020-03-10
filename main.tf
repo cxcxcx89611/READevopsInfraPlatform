@@ -21,7 +21,7 @@ resource "aws_instance" "default" {
   source_dest_check      = false
   instance_type          = var.instance_type
   subnet_id              = "subnet-25f8094e"
-  vpc_security_group_id  = ["sg-058bf7e7e208d1380"]
+  vpc_security_group_ids  = ["sg-058bf7e7e208d1380"]
 
     tags = {
         Name          = "REA_Group_Dev_ENV"
