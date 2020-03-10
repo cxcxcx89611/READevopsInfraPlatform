@@ -2,6 +2,9 @@ pipeline {
  agent {
   label 'Slave01'
  }
+ environment {
+ credentialsId = 'awsCredentials'
+ }
  stages {
   stage('checkout') {
    steps{
