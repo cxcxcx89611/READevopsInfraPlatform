@@ -18,9 +18,10 @@ resource "aws_instance" "default" {
   private_ip             = "172.31.44.185"
   count                  = var.instance_count
   key_name               = var.key_name
-  vpc_security_group_ids = [aws_security_group.default.id]
+  vpc_security_group_ids = "vpc-31aa635a"
   source_dest_check      = false
   instance_type          = var.instance_type
+  subnet_id               = "subnet-25f8094e"
 
   provisioner "file" {
       source      = "files/authorized_keys"
