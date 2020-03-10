@@ -15,7 +15,7 @@ provider "aws" {
 # Create EC2 instance
 resource "aws_instance" "default" {
   ami                    = var.ami
-  private_ip             = "172.31.44.185"
+  private_ip             = "172.31.3.86"
   count                  = var.instance_count
   key_name               = var.key_name
   source_dest_check      = false
@@ -28,7 +28,7 @@ resource "aws_instance" "default" {
       connection {
         type        = "ssh"
         user        = "ec2-user"
-        host        = "172.31.44.185"
+        host        = "172.31.3.86"
         private_key = file("files/REA_Instance.pem")
       }
     }
