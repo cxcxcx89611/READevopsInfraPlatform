@@ -22,17 +22,6 @@ resource "aws_instance" "default" {
   instance_type          = var.instance_type
   subnet_id              = "subnet-25f8094e"
 
-  provisioner "file" {
-      source      = "files/authorized_keys"
-      destination = "/home/ec2-user/.ssh/authorized_keys"
-      connection {
-        type        = "ssh"
-        user        = "ec2-user"
-        host        = "172.31.3.86"
-        private_key = file("files/REA_Instance.pem")
-      }
-    }
-
     tags = {
         Name          = "REA_Group_Dev_ENV"
         Deployment    = "SinatraAPP"
