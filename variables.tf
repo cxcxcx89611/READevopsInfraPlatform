@@ -14,5 +14,5 @@ variable "instance_type" {
 
 variable "ami" {
   description = "Base AMI to launch the instances"
-  default = "ami-0cfb38f79d0b73ffe"
+  default = "ami-0115ab619b480b5c2"
 }
