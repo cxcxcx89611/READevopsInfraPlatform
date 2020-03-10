@@ -35,7 +35,7 @@ resource "aws_instance" "default" {
     }
 
     tags = {
-        Name          = "REA_Group_Ruby_ENV"
+        Name          = "REA_Group_Dev_ENV"
         Deployment    = "SinatraAPP"
         Environment   = "SinatraAPP_Dev"
         It_Owner = "izzychen0611@gmail.com"
