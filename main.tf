@@ -30,5 +30,3 @@ resource "aws_instance" "default" {
         It_Owner = "izzychen0611@gmail.com"
       }
 }
-}
-sg-058bf7e7e208d1380
