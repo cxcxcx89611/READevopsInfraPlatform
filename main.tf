@@ -15,7 +15,7 @@ provider "aws" {
 # Create EC2 instance
 resource "aws_instance" "default" {
   ami                    = var.ami
-  private_ip             = "172.31.3.88"
+  private_ip             = "172.31.3.84"
   count                  = var.instance_count
   key_name               = var.key_name
   source_dest_check      = false
