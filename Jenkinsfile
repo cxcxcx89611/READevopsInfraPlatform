@@ -87,7 +87,7 @@ pipeline {
                                 whoami
                                 pwd
                                 ssh -i ${devEnvPrivateKey} ec2-user@${devEnvPrivateIP} "mkdir -p ${devArtifactsDeploymentTargetDir}"
-                                scp -ri ${devEnvPrivateKey} ${devArtifactsDeploymentSourceDir}/* ec2-user@${devEnvPrivateIP} :${devArtifactsDeploymentTargetDir}/
+                                scp -ri ${devEnvPrivateKey} ${devArtifactsDeploymentSourceDir}/* ec2-user@${devEnvPrivateIP}:${devArtifactsDeploymentTargetDir}/
                                 '''
                    }
                  }
