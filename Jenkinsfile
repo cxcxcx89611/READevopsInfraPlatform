@@ -86,8 +86,8 @@ pipeline {
                    sh '''
                                 whoami
                                 pwd
-                                ssh -i ${devEnvDeploymentPrivateKey} ec2-user@${devEnvPrivateIP} "mkdir -p ${devArtifactsDeploymentTargetDir}"
-                                scp -ri ${devEnvDeploymentPrivateKey} ${devArtifactsDeploymentSourceDir}/* ec2-user@${devEnvPrivateIP} :${devArtifactsDeploymentTargetDir}/
+                                ssh -i ${devEnvPrivateKey} ec2-user@${devEnvPrivateIP} "mkdir -p ${devArtifactsDeploymentTargetDir}"
+                                scp -ri ${devEnvPrivateKey} ${devArtifactsDeploymentSourceDir}/* ec2-user@${devEnvPrivateIP} :${devArtifactsDeploymentTargetDir}/
                                 '''
                    }
                  }
@@ -103,7 +103,7 @@ pipeline {
                                       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                            ]]) {
                             sh '''
-                                ssh -oStrictHostKeyChecking=no -oIdentityFile=${devEnvDeploymentPrivateKey} ec2-user@${devEnvPrivateIP}  << EOF
+                                ssh -oStrictHostKeyChecking=no -oIdentityFile=${devEnvPrivateKey} ec2-user@${devEnvPrivateIP}  << EOF
                                                   cd ${devArtifactsDeploymentTargetDir}
                                                   docker build -t sinatra-1.0 .
                                                   docker rm -f sinatra_container
