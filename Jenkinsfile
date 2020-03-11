@@ -104,7 +104,7 @@ pipeline {
                                                   docker build -t sinatra-1.0 .
                                                   docker rm -f sinatra_container
                                                   docker run -d -p 80:9292 --name sinatra_container sinatra-1.0:latest
-                                                  EOF
+                                EOF
                                 '''
                        }
               }
