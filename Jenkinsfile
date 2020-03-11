@@ -4,6 +4,10 @@ pipeline {
  }
  environment {
  credentialsId = 'awsCredentials'
+ devEnvPrivateKey = "/home/jenkins-slave-01/.ssh/id_rsa_ec2"
+ devEnvPrivateIP = "172.31.3.86"
+ devArtifactsDeploymentTargetDir = "/home/ec2-user/REA_Deployment/artifacts/SinatraApp"
+ devArtifactsDeploymentSourceDir = "/home/jenkins-slave-01/workspace/artifacts/SinatraAPP"
  }
  stages {
   stage('checkout') {
@@ -82,8 +86,8 @@ pipeline {
                    sh '''
                                 whoami
                                 pwd
-                                ssh -i ~/.ssh/id_rsa_ec2 ec2-user@172.31.3.86 "mkdir -p /home/ec2-user/REA_Deployment/artifacts/SinatraApp/"
-                                scp -ri ~/.ssh/id_rsa_ec2 /home/jenkins-slave-01/workspace/artifacts/SinatraAPP/* ec2-user@172.31.3.86:/home/ec2-user/REA_Deployment/artifacts/SinatraApp/
+                                ssh -i ${devEnvDeploymentPrivateKey} ec2-user@${devEnvPrivateIP} "mkdir -p ${devArtifactsDeploymentTargetDir}"
+                                scp -ri ${devEnvDeploymentPrivateKey} ${devArtifactsDeploymentSourceDir}/* ec2-user@${devEnvPrivateIP} :${devArtifactsDeploymentTargetDir}/
                                 '''
                    }
                  }
@@ -99,8 +103,8 @@ pipeline {
                                       secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                            ]]) {
                             sh '''
-                                ssh -oStrictHostKeyChecking=no -oIdentityFile=~/.ssh/id_rsa_ec2 ec2-user@172.31.3.86  << EOF
-                                                  cd /home/ec2-user/REA_Deployment/artifacts/SinatraApp/
+                                ssh -oStrictHostKeyChecking=no -oIdentityFile=${devEnvDeploymentPrivateKey} ec2-user@${devEnvPrivateIP}  << EOF
+                                                  cd ${devArtifactsDeploymentTargetDir}
                                                   docker build -t sinatra-1.0 .
                                                   docker rm -f sinatra_container
                                                   docker run -d -p 80:9292 --name sinatra_container sinatra-1.0:latest
