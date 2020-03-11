@@ -101,8 +101,9 @@ pipeline {
                             sh '''
                                 ssh -oStrictHostKeyChecking=no -oIdentityFile=~/.ssh/id_rsa_ec2 ec2-user@172.31.3.86  << EOF
                                                   cd /home/ec2-user/REA_Deployment/artifacts/SinatraApp/
-                                                  docker build -t sinatra-1.0
-                                                  docker run -d -p 80:9292 --name sinatra_container sinatra-1.0
+                                                  docker build -t sinatra-1.0 .
+                                                  docker rm -f sinatra_container
+                                                  docker run -d -p 80:9292 --name sinatra_container sinatra-1.0:latest
                                              EOF
                                 '''
                        }
